@@ -5,9 +5,9 @@ dimensions.*
 
 ![img](./columns.png "Screenshot")
 
-Print a list in columns based on the size of the current terminal, using all
+Print a list in columns based on the size of the current terminal. Use all
 available vertical space before creating additional columns. Once all horizontal
-space has been populated with columns add additional rows.
+space has been populated with columns, add additional rows.
 
 ## INSTALLATION
 
