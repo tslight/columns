@@ -2,9 +2,7 @@
 
 *Does what it says on the tin.*
 
-![img](./fullscreen.png "Fullscreen Terminal")
-
-![img](./80x24.png "80 x 24 Terminal")
+![img](./scrot.png "Screenshot")
 
 ## INSTALLATION
 
