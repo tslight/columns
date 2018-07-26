@@ -4,6 +4,10 @@
 
 ![img](./scrot.png "Screenshot")
 
+Print a list in columns based on the size of the current terminal, favoring
+vertical space over horizontal, i.e) use all available vertical space before
+creating additional columns.
+
 ## INSTALLATION
 
 `pip install columns`
@@ -21,3 +25,9 @@ positional arguments:
 optional arguments:
   -h, --help  show this help message and exit
 ```
+
+## EXAMPLES
+
+`columns items{0..256}`
+
+`columns $(shuf -n 100 /usr/share/dict/words)`

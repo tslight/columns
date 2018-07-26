@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="columns",
-    version="0.0.1",
+    version="0.0.2",
     author="Toby Slight",
     author_email="tobyslight@gmail.com",
     description="Print a list in columns.",
