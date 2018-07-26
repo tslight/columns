@@ -1,6 +1,6 @@
 def mkpad(l):
     '''
-    Find the length of the longest element of a list and return it + 2
+    Find the length of the longest element of a list and return it plus two.
     '''
     pad = 0
     for e in l:
@@ -45,6 +45,11 @@ def mkrows(l, pad, width, height):
 
 
 def prtcols(l):
+    '''
+    After computing the size of our rows and columns based on the terminal size
+    and length of the largest element, use zip to aggregate our column lists
+    into row lists and then iterate over the row lists and print them.
+    '''
     from os import get_terminal_size
     width, height = get_terminal_size()
     height -= 4  # allow for multiline prompt at top and bottom
