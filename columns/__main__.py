@@ -9,7 +9,7 @@ def main():
     from .columns import prtcols
     args = getargs()
     l = args.list
-    prtcols(l)
+    prtcols(l, 4)
 
 
 if __name__ == '__main__':

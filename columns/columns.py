@@ -44,7 +44,7 @@ def mkrows(l, pad, width, height):
     return height
 
 
-def prtcols(l):
+def prtcols(l, i):
     '''
     After computing the size of our rows and columns based on the terminal size
     and length of the largest element, use zip to aggregate our column lists
@@ -52,7 +52,7 @@ def prtcols(l):
     '''
     from os import get_terminal_size
     width, height = get_terminal_size()
-    height -= 4  # allow for multiline prompt at top and bottom
+    height -= i  # customize vertical padding
     pad = mkpad(l)
     rows = mkrows(l, pad, width, height)
     cols = mkcols(l, rows)
