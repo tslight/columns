@@ -1,12 +1,13 @@
 # PRINT A LIST IN COLUMNS
 
-*Does what it says on the tin.*
+*Dynamically transform long lists into columns appropriate for terminal
+dimensions.*
 
-![img](./scrot.png "Screenshot")
+![img](./columns.png "Screenshot")
 
-Print a list in columns based on the size of the current terminal, favoring
-vertical space over horizontal, i.e) use all available vertical space before
-creating additional columns.
+Print a list in columns based on the size of the current terminal, using all
+available vertical space before creating additional columns. Once all horizontal
+space has been populated with columns add additional rows.
 
 ## INSTALLATION
 
@@ -24,6 +25,17 @@ positional arguments:
 
 optional arguments:
   -h, --help  show this help message and exit
+```
+
+## PYTHON USAGE
+
+```python
+from columns import prtcols
+
+my_list = amazing_generator_function()
+vertical_padding_space = 10
+
+prtcols(my_list, vertical_padding_space)
 ```
 
 ## EXAMPLES
