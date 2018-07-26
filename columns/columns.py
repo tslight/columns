@@ -1,62 +1,55 @@
 def mkpad(l):
     '''
-    Find the length of the longest element of a list and return it + 1
+    Find the length of the longest element of a list and return it + 2
     '''
     pad = 0
     for e in l:
         index = l.index(e)
         if len(l[index]) > pad:
             pad = len(l[index])
-    pad += 1
+    pad += 2
     return pad
 
 
 def mkcols(l, rows):
     '''
-    Split a long list up into smaller lists with no more elements than the row
-    length of the terminal, if possible.  Return a list of smaller lists.
+    Compute the size of our columns by first making them a divisible of our row
+    height and then splitting our list into smaller lists the size of the row
+    height.
     '''
     cols = []
     base = 0
+    while len(l) > rows and len(l) % rows != 0:
+        l.append("")
     for i in range(rows, len(l) + rows, rows):
         cols.append(l[base:i])
         base = i
     return cols
 
 
-def mkrows(l, pad, cols, rows):
+def mkrows(l, pad, width, height):
     '''
-    Taking a list and the the length of it's longest element - work out the
-    maximum amount of times the longest element can fit into the standard 80
-    char column width of a terminal.
+    Compute the optimal number of rows based on our lists' largest element and
+    our terminal size in columns and rows.
 
-    If the length of the list is less than 20 x that value (meaning we can
-    fit all the elements into a standard terminal with 20 rows), then return
-    20.
+    Work out our maximum column number by dividing the width of the terminal by
+    our largest element.
 
-    Otherwise, we need to set the row length to the length of the list divided
-    by the maximum amount of columns we can fit into the terminal - providing
-    the remainder of dividing the length of the list by that number is 0,
-
-    Otherwise increment the number of rows until it is.
+    While the length of our list is greater than the total number of elements we
+    can fit on the screen increment the height by one.
     '''
-    maxcols = int(cols/pad)
-    if len(l) > rows * maxcols:
-        rows = int(len(l)/maxcols)
-        while len(l) % rows != 0:
-            rows += 1
-    return rows
+    maxcols = int(width/pad)
+    while len(l) > height * maxcols:
+        height += 1
+    return height
 
 
 def prtcols(l):
     from os import get_terminal_size
-    termsize = get_terminal_size()
-    termcols = termsize[0]
-    termrows = termsize[1] - 4
-    while len(l) > termrows and len(l) % termrows != 0:
-        l.append("")
+    width, height = get_terminal_size()
+    height -= 4  # allow for multiline prompt at top and bottom
     pad = mkpad(l)
-    rows = mkrows(l, pad, termcols, termrows)
+    rows = mkrows(l, pad, width, height)
     cols = mkcols(l, rows)
     # * operator in conjunction with zip, unzips the list
     for c in zip(*cols):
