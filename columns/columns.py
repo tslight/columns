@@ -6,8 +6,7 @@ def mkpad(l):
     for e in l:
         index = l.index(e)
         if len(l[index]) > pad:
-            pad = len(l[index])
-    pad += 2
+            pad = len(l[index]) + 2
     return pad
 
 
