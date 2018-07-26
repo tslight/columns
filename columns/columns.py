@@ -1,12 +1,13 @@
 def mkpad(l):
     '''
-    Find the length of the longest element of a list and return it plus two.
+    Find the length of the longest element of a list. Return that value + two.
     '''
     pad = 0
     for e in l:
         index = l.index(e)
         if len(l[index]) > pad:
-            pad = len(l[index]) + 2
+            pad = len(l[index])
+    pad += 2
     return pad
 
 
