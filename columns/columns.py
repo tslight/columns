@@ -2,15 +2,16 @@
 # ISC License (ISCL) - see LICENSE file for details.
 
 
-def mkpad(l):
+def mkpad(items):
     '''
     Find the length of the longest element of a list. Return that value + two.
     '''
     pad = 0
-    for e in l:
-        index = l.index(e)
-        if len(l[index]) > pad:
-            pad = len(l[index])
+    stritems = [str(e) for e in items]  # cast list to strings
+    for e in stritems:
+        index = stritems.index(e)
+        if len(stritems[index]) > pad:
+            pad = len(stritems[index])
     pad += 2
     return pad
 
@@ -48,7 +49,7 @@ def mkrows(l, pad, width, height):
     return height
 
 
-def prtcols(items, vpad):
+def prtcols(items, vpad=6):
     '''
     After computing the size of our rows and columns based on the terminal size
     and length of the largest element, use zip to aggregate our column lists
