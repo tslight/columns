@@ -56,6 +56,7 @@ def prtcols(items, vpad=6):
     into row lists and then iterate over the row lists and print them.
     '''
     from os import get_terminal_size
+    items = list(items)  # copy list so we don't mutate it
     width, height = get_terminal_size()
     height -= vpad  # customize vertical padding
     pad = mkpad(items)
